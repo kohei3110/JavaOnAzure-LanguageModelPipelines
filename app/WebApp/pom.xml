@@ -16,8 +16,7 @@
 	<properties>
 		<java.version>17</java.version>
 		<aoai.sdk.version>1.0.0-beta.2</aoai.sdk.version>
-		<cosmos.version>4.45.1</cosmos.version>
-		<!-- <cosmos.version>4.47.0</cosmos.version>  <-FIXME: 動かない -->
+		<cosmos.version>4.47.0</cosmos.version>
 		<jedis.version>4.3.0</jedis.version>
 		<jackson.version>2.15.2</jackson.version>
 		<lombok.version>1.18.24</lombok.version>
