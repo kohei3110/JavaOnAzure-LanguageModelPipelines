@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.azure.ai.openai.models.ChatRole;
 import com.koheisaito.sk4j.model.ChatHistory;
 import com.koheisaito.sk4j.model.ChatRequest;
 
@@ -43,8 +44,9 @@ public class ServerController {
 		// DB から ChatHistory を取得
 		List<ChatHistory> chatHistories = factory.injectGetChatHistoryService().getChatHistory(userId);
 		String answer = factory.injectPostStreamChatService().postStreamChat(userInput, chatHistories, sink);
-		// DB 保存
-		factory.injectCreateChatHistoryService().createChatHistory(userId, userInput, answer);
+		// DB に履歴を保存
+		factory.injectCreateChatHistoryService().createChatHistoryWithRole(userId, userInput, ChatRole.USER);
+		factory.injectCreateChatHistoryService().createChatHistoryWithRole(userId, answer, ChatRole.ASSISTANT);
 	}
 
 	@GetMapping(path = "/sseStream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)

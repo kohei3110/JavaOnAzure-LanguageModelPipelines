@@ -5,8 +5,7 @@ import com.azure.ai.openai.models.ChatRole;
 public class ChatHistory {
     private String id;
     private String userId;
-    private String question;
-    private String answer;
+    private String content;
     private ChatRole role;
     private Integer timestamp;
 
@@ -26,20 +25,12 @@ public class ChatHistory {
         this.userId = userId;
     }
 
-    public String getQuestion() {
-        return question;
+    public String getContent() {
+        return content;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public ChatRole getRole() {

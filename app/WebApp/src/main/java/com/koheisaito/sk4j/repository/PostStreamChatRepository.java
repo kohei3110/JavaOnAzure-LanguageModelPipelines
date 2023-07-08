@@ -88,9 +88,9 @@ public class PostStreamChatRepository {
         if (chatHistories.size() > 0) {
             chatHistories.forEach(chatHistory -> {
                 if (chatHistory.getRole() == ChatRole.ASSISTANT) {
-                    chatMessages.add(new ChatMessage(ChatRole.ASSISTANT).setContent(chatHistory.getAnswer()));
+                    chatMessages.add(new ChatMessage(ChatRole.ASSISTANT).setContent(chatHistory.getContent()));
                 } else {
-                    chatMessages.add(new ChatMessage(ChatRole.USER).setContent(chatHistory.getQuestion()));
+                    chatMessages.add(new ChatMessage(ChatRole.USER).setContent(chatHistory.getContent()));
                 }
             });
         }
